@@ -107,7 +107,8 @@ public class WebSocketStompClient implements StompClient {
 					this.stompMessageHandler.afterConnected(stompSession, headers);
 				}
 				else if (StompCommand.MESSAGE.equals(headers.getCommand())) {
-					this.stompMessageHandler.handleMessage(message);
+					WebSocketStompSession stompSession = new WebSocketStompSession(session, this.messageConverter);
+					this.stompMessageHandler.handleMessage(stompSession, message);
 				}
 				else if (StompCommand.RECEIPT.equals(headers.getCommand())) {
 					this.stompMessageHandler.handleReceipt(headers.getReceiptId());

@@ -9,7 +9,7 @@ public interface StompMessageHandler {
 
 	void afterConnected(StompSession session, StompHeaderAccessor headers);
 
-	void handleMessage(Message<byte[]> message);
+	void handleMessage(StompSession session, Message<byte[]> message);
 
 	void handleReceipt(String receiptId);
 
