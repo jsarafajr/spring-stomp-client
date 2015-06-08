@@ -58,7 +58,7 @@ public class SimpleStompClient {
             public void afterConnected(StompSession session, StompHeaderAccessor headers) {
                 LOG.info("Socket handshake with [" + url + "] success.");
 
-                handler.onConnect(session, headers);
+                handler.onConnect();
 
                 Map<String, Subscription> subscriptions = handler.getSubscriptions();
 
@@ -74,13 +74,9 @@ public class SimpleStompClient {
                 Subscription subscription = handler.getSubscriptions().get(destination);
 
                 if (subscription != null) {
+                    LOG.info("Handled message from [" + destination + "]");
                     subscription.action(session, message);
                 }
-            }
-
-            @Override
-            public void handleReceipt(String receiptId) {
-
             }
 
             @Override

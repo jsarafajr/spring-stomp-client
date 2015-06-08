@@ -11,8 +11,6 @@ public interface StompMessageHandler {
 
 	void handleMessage(StompSession session, Message<byte[]> message);
 
-	void handleReceipt(String receiptId);
-
 	void handleError(Message<byte[]> message);
 
 	void afterDisconnected();
