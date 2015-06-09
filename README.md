@@ -1,1 +1,1 @@
-# spring-stomp-client
+# Simple Stomp Client
