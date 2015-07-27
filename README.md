@@ -1,5 +1,4 @@
 # Simple Stomp Client
-==============
 
 Spring [STOMP](http://stomp.github.com) client implementation.
 
@@ -20,8 +19,11 @@ Spring [STOMP](http://stomp.github.com) client implementation.
             stompClient.connect(new SimpleMessageHandler() {
                 @Override
                 public void onConnect() {
+                    // subscribing on events
                     subscribe("/topic/client", (session, message) -> {
                         System.out.println("Got message : " + new String(message.getPayload()));
+                        
+                        // sending message
                         session.send("/app/method", "Hello Stomp");
                     });
                 }
