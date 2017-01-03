@@ -3,6 +3,8 @@
 Spring [STOMP](http://stomp.github.com) client implementation.
 
 ## Example
+
+```java
     @SpringBootApplication
     @EnableAutoConfiguration
     public class Application {
@@ -30,3 +32,4 @@ Spring [STOMP](http://stomp.github.com) client implementation.
             });
         }
     }
+```
